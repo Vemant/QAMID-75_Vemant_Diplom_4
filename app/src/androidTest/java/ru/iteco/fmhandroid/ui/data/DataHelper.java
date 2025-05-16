@@ -1,4 +1,4 @@
-package ru.iteco.fmhandroid.ui;
+package ru.iteco.fmhandroid.ui.data;
 
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
@@ -53,5 +53,26 @@ public class DataHelper {
                         .build();
             }
         };
+    }
+
+//   public static AuthInfo getValifAuthInfo() {
+//        return new AuthInfo("login2", "password2")
+//   }
+
+    //    String validLogin = "login2";
+//    String validPassword = "password2";
+
+
+    public static String getValidLogin() {
+        return "login2";
+    }
+
+    public static String getValidPassword() {
+        return "password2";
+    }
+
+    public static class AuthInfo {
+        String login;
+        String password;
     }
 }

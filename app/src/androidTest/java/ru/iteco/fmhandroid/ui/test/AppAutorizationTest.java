@@ -1,4 +1,4 @@
-package ru.iteco.fmhandroid.ui;
+package ru.iteco.fmhandroid.ui.test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -6,6 +6,7 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withHint;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.Matchers.allOf;
 import static ru.iteco.fmhandroid.ui.data.DataHelper.waitDisplayed;
 
 import androidx.test.espresso.ViewInteraction;
@@ -15,23 +16,22 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import ru.iteco.fmhandroid.R;
+import ru.iteco.fmhandroid.ui.AppActivity;
+import ru.iteco.fmhandroid.ui.page.LoginPage;
+import ru.iteco.fmhandroid.ui.page.MainPage;
 
-public class ExampleTest {
+public class AppAutorizationTest {
 
-    private final ViewInteraction loginField = onView(withHint("Login"));
-    private final ViewInteraction passwordField = onView(withHint("Password"));
-    private final ViewInteraction loginButton = onView(withId(R.id.enter_button));
+    LoginPage loginPage;
+    MainPage mainPage;
 
     @Rule
     public ActivityScenarioRule<AppActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(AppActivity.class);
 
-
     @Test
-    public void test() {
-        onView(isRoot()).perform(waitDisplayed(R.id.enter_button, 5000));
-        loginField.perform(typeText(""));
-        passwordField.perform(typeText(""));
-        loginButton.perform(click());
+    public void validLoginValidPasswordTest() {
+        MainPage mainPage = loginPage.validLoginPassword();
+        //        mainPage = mainPage.labelVisible();
     }
 }
